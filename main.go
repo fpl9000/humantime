@@ -209,8 +209,3 @@ func getVariation(options []string) string {
 	}
 	return options[rand.Intn(len(options))]
 }
-
-func init() {
-	// Seed the random number generator for variation in output
-	rand.Seed(time.Now().UnixNano())
-}
