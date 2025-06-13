@@ -157,7 +157,7 @@ func generateTimeString(hour int, minute int, timeOfDay string) string {
 			if nextHour == 12 {
 				return getVariation([]string{
 					fmt.Sprintf("Around %s to noon.", minuteWord),
-					fmt.Sprintf("About %s to twelve.", minuteWord),
+					fmt.Sprintf("About %s to noon.", minuteWord),
 				})
 			}
 			return getVariation([]string{
