@@ -81,24 +81,24 @@ func generateTimeString(hour int, minute int, timeOfDay string) string {
 		// Quarter past
 		if hour == 12 && timeOfDay == "afternoon" {
 			return getVariation([]string{
-				"A quarter past noon.",
-				"About a quarter past twelve.",
-				"Fifteen minutes past noon.",
+				"Around a quarter past noon.",
+				"About a quarter past noon.",
+				"About fifteen past noon.",
 			})
 		}
 		return getVariation([]string{
-			fmt.Sprintf("A quarter past %s.", hourWord),
+			fmt.Sprintf("Around a quarter past %s.", hourWord),
 			fmt.Sprintf("About a quarter past %s.", hourWord),
-			fmt.Sprintf("Fifteen minutes past %s.", hourWord),
+			fmt.Sprintf("About fifteen past %s.", hourWord),
 		})
 
 	case 30:
 		// Half past
 		if hour == 12 && timeOfDay == "afternoon" {
 			return getVariation([]string{
-				"Half past noon.",
-				"About half past twelve.",
-				"Thirty minutes past noon.",
+				"Around half past noon.",
+				"About half past noon.",
+				"Just about half past noon.",
 			})
 		}
 		return getVariation([]string{
@@ -118,12 +118,12 @@ func generateTimeString(hour int, minute int, timeOfDay string) string {
 		if nextHour == 12 {
 			return getVariation([]string{
 				"A quarter to noon.",
-				"About a quarter to twelve.",
-				"Fifteen minutes to noon.",
+				"About a quarter to noon.",
+				"Fifteen before noon.",
 			})
 		}
 		return getVariation([]string{
-			fmt.Sprintf("A quarter to %s.", nextHourWord),
+			fmt.Sprintf("Just about a quarter to %s.", nextHourWord),
 			fmt.Sprintf("About a quarter to %s.", nextHourWord),
 			fmt.Sprintf("Almost a quarter to %s.", nextHourWord),
 		})
@@ -135,14 +135,14 @@ func generateTimeString(hour int, minute int, timeOfDay string) string {
 			minuteWord := minutesToWords(minute)
 			if hour == 12 && timeOfDay == "afternoon" {
 				return getVariation([]string{
-					fmt.Sprintf("%s past noon.", minuteWord),
-					fmt.Sprintf("About %s past twelve.", minuteWord),
+					fmt.Sprintf("Around %s past noon.", minuteWord),
+					fmt.Sprintf("About %s past noon.", minuteWord),
 				})
 			}
 			return getVariation([]string{
-				fmt.Sprintf("%s past %s.", minuteWord, hourWord),
+				fmt.Sprintf("Around %s past %s.", minuteWord, hourWord),
 				fmt.Sprintf("About %s past %s.", minuteWord, hourWord),
-				fmt.Sprintf("Just %s past %s.", minuteWord, hourWord),
+				fmt.Sprintf("Just about %s past %s.", minuteWord, hourWord),
 			})
 		} else {
 			// Minutes to the next hour
@@ -156,12 +156,12 @@ func generateTimeString(hour int, minute int, timeOfDay string) string {
 
 			if nextHour == 12 {
 				return getVariation([]string{
-					fmt.Sprintf("%s to noon.", minuteWord),
+					fmt.Sprintf("Around %s to noon.", minuteWord),
 					fmt.Sprintf("About %s to twelve.", minuteWord),
 				})
 			}
 			return getVariation([]string{
-				fmt.Sprintf("%s to %s.", minuteWord, nextHourWord),
+				fmt.Sprintf("Around %s to %s.", minuteWord, nextHourWord),
 				fmt.Sprintf("About %s to %s.", minuteWord, nextHourWord),
 				fmt.Sprintf("Almost %s to %s.", minuteWord, nextHourWord),
 			})
@@ -182,23 +182,23 @@ func numberToWord(num int) string {
 func minutesToWords(minutes int) string {
 	switch minutes {
 	case 5:
-		return "Five minutes"
+		return "five"
 	case 10:
-		return "Ten minutes"
+		return "ten"
 	case 20:
-		return "Twenty minutes"
+		return "twenty"
 	case 25:
-		return "Twenty-five minutes"
+		return "twenty-five"
 	case 35:
-		return "Twenty-five minutes"
+		return "twenty-five"
 	case 40:
-		return "Twenty minutes"
+		return "twenty"
 	case 50:
-		return "Ten minutes"
+		return "ten"
 	case 55:
-		return "Five minutes"
+		return "five"
 	default:
-		return fmt.Sprintf("%d minutes", minutes)
+		return fmt.Sprintf("%d", minutes)
 	}
 }
 
